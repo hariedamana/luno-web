@@ -1,0 +1,72 @@
+=== RECENT SESSIONS (with notes) ===
+
+ID: 5eed5594-15c9-407b-bac2-881805120b1d
+Title: Untitled
+Notes: "Captured via Mobile Recorder. File ID: ba5000ab-2c3d-48ce-9578-6f12bf69da78"
+UserID: 116abda7-d6d9-421d-98a9-97940d477948
+Created: Wed Jan 21 2026 12:01:38 GMT+0530 (India Standard Time)
+---
+
+ID: 59167875-a6d6-4c60-a636-cb4a71c527aa
+Title: Untitled
+Notes: "Captured via Mobile Recorder. File ID: ba5000ab-2c3d-48ce-9578-6f12bf69da78"
+UserID: 116abda7-d6d9-421d-98a9-97940d477948
+Created: Wed Jan 21 2026 12:01:38 GMT+0530 (India Standard Time)
+---
+
+ID: 8ea069a2-e455-403b-8563-077b54378f67
+Title: XYZ
+Notes: "(empty)"
+UserID: 116abda7-d6d9-421d-98a9-97940d477948
+Created: Wed Jan 21 2026 11:14:40 GMT+0530 (India Standard Time)
+---
+
+ID: 76638b8c-16f7-4153-bc1d-c7841e030b76
+Title: New Verification Title
+Notes: "Manual creation test 2"
+UserID: 07c4d8f9-25bf-46a2-a0ea-2f9c10701e0d
+Created: Tue Jan 20 2026 23:55:55 GMT+0530 (India Standard Time)
+---
+
+ID: f14209af-9448-4e13-95da-5ea3dcf00755
+Title: Python
+Notes: "(empty)"
+UserID: 116abda7-d6d9-421d-98a9-97940d477948
+Created: Tue Jan 20 2026 23:25:43 GMT+0530 (India Standard Time)
+---
+
+ID: 8c87d536-a69f-4ddd-be64-f3211d716c88
+Title: ABCD
+Notes: "(empty)"
+UserID: 116abda7-d6d9-421d-98a9-97940d477948
+Created: Tue Jan 20 2026 22:54:28 GMT+0530 (India Standard Time)
+---
+
+ID: 23415b2b-4690-411a-8dca-8f501380ed37
+Title: Python
+Notes: "(empty)"
+UserID: 116abda7-d6d9-421d-98a9-97940d477948
+Created: Tue Jan 20 2026 22:53:19 GMT+0530 (India Standard Time)
+---
+
+ID: f6739bcb-1300-42e4-8b92-b6ba42c5db71
+Title: Python
+Notes: "(empty)"
+UserID: 116abda7-d6d9-421d-98a9-97940d477948
+Created: Tue Jan 20 2026 22:43:27 GMT+0530 (India Standard Time)
+---
+
+ID: 0a368247-35f1-42f4-9a0d-dfcd4d574147
+Title: Mobile Capture - 10:42:55 pm
+Notes: "Captured via LUNO Mobile Recorder"
+UserID: 116abda7-d6d9-421d-98a9-97940d477948
+Created: Tue Jan 20 2026 22:42:56 GMT+0530 (India Standard Time)
+---
+
+ID: c51a54d2-2c3c-4995-9d34-eb26126ad970
+Title: Python
+Notes: "(empty)"
+UserID: 116abda7-d6d9-421d-98a9-97940d477948
+Created: Tue Jan 20 2026 22:29:05 GMT+0530 (India Standard Time)
+---
+

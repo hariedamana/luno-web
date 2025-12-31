@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.venv/
+
+# AI Server (not part of this milestone)
+ai-server/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Build outputs
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Prisma
+*.db
+*.db-journal
+
+# Uploads
+uploads/
+transcripts/
+
+# Temp files
+*.tmp
+*.temp
+
+# Large Media
+*.mp4
+*.mov
+*.wav

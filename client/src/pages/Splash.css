@@ -1,0 +1,121 @@
+.splash {
+    position: fixed;
+    inset: 0;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.splash-logo-container {
+    perspective: 1000px;
+}
+
+.splash-logo-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    animation: logoAnimation 7s ease-in-out forwards;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 0 20px rgba(93, 214, 44, 0.4));
+}
+
+.splash-logo {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--color-text);
+    opacity: 0;
+    animation: textFadeIn 1s ease-out 0.5s forwards;
+}
+
+@keyframes textFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes logoAnimation {
+    0% {
+        transform: translateY(0) rotateY(0deg);
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    10% {
+        transform: translateY(-30px) rotateY(0deg);
+    }
+
+    15% {
+        transform: translateY(0) rotateY(72deg);
+    }
+
+    25% {
+        transform: translateY(-35px) rotateY(72deg);
+    }
+
+    30% {
+        transform: translateY(0) rotateY(144deg);
+    }
+
+    40% {
+        transform: translateY(-40px) rotateY(144deg);
+    }
+
+    45% {
+        transform: translateY(0) rotateY(216deg);
+    }
+
+    55% {
+        transform: translateY(-35px) rotateY(216deg);
+    }
+
+    60% {
+        transform: translateY(0) rotateY(288deg);
+    }
+
+    70% {
+        transform: translateY(-30px) rotateY(288deg);
+    }
+
+    75% {
+        transform: translateY(0) rotateY(360deg);
+    }
+
+    100% {
+        transform: translateY(0) rotateY(360deg);
+        opacity: 1;
+    }
+}
+
+.splash-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.8s ease;
+}
+
+.splash-subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -1,0 +1,14 @@
+=== MODES ===
+ID: 539473cf-3e35-4b93-8751-ce18fa818805 | Name: LUNO Sync | Slug: sync
+ID: 9e786f9a-3b14-47f6-9ec5-5105183e2871 | Name: LUNO Scholar | Slug: scholar
+ID: 2cafef87-bac9-4d1e-8a99-422e8404860c | Name: LUNO Probe | Slug: probe
+ID: 499513e2-453e-412b-b210-451284fe61c0 | Name: LUNO Reflect | Slug: reflect
+ID: 0dcde755-852a-4396-9534-0a8b0068fffa | Name: LUNO Care | Slug: care
+ID: 5b8b9bc8-c054-4b0c-a9d9-47ae9560ce12 | Name: LUNO Verdict | Slug: verdict
+ID: dc7f76d8-ed4d-4db4-9f23-18775cce8cf5 | Name: LUNO Spark | Slug: spark
+
+=== UNTITLED SESSION ===
+ID: 59167875-a6d6-4c60-a636-cb4a71c527aa
+Title: Untitled
+ModeId: 9e786f9a-3b14-47f6-9ec5-5105183e2871
+Mode Match: LUNO Scholar (slug: scholar)

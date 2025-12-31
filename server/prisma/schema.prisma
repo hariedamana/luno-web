@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  MODERATOR
+  VIEWER
+  USER
+}
+
+model User {
+  id              String           @id @default(uuid())
+  email           String           @unique
+  password        String
+  name            String?
+  role            Role             @default(USER)
+  lastLoginAt     DateTime?
+  lastLoginIp     String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  sessions        Session[]
+  refreshTokens   RefreshToken[]
+  devices         Device[]
+}
+
+model Session {
+  id         String   @id @default(uuid())
+  title      String
+  modeId     String
+  mode       Mode     @relation(fields: [modeId], references: [id])
+  duration   Int      @default(0) // seconds
+  transcript String?
+  notes      String?
+  status     String   @default("completed") // pending, completed, failed
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Mode {
+  id              String           @id @default(uuid())
+  name            String           @unique
+  slug            String           @unique
+  description     String
+  icon            String
+  color           String           @default("#ffffff")
+  isEnabled       Boolean          @default(true)
+  summaryStyle    String           @default("detailed")
+  keywordExtract  Boolean          @default(true)
+  autoTitle       Boolean          @default(true)
+  sessions        Session[]
+}
+
+model Device {
+  id          String    @id @default(uuid())
+  name        String
+  status      String    @default("disconnected")
+  firmware    String    @default("1.0.0")
+  battery     Int       @default(100)
+  storage     Int       @default(100) // percentage remaining
+  temperature Float     @default(25.0)
+  location    String?   // logical location (e.g., "Lab A", "Conference Room")
+  lastSync    DateTime?
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Order {
+  id              String   @id @default(uuid())
+  stripeSessionId String   @unique
+  customerEmail   String
+  productName     String
+  amount          Int      // Amount in cents
+  status          String   @default("pending") // pending, completed, failed
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model SystemLog {
+  id        String   @id @default(uuid())
+  type      String   // info, warning, error, security
+  category  String   // auth, device, session, system
+  message   String
+  userId    String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+}
+
+model SystemSettings {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String
+  category  String   @default("general")
+  updatedAt DateTime @updatedAt
+}
+

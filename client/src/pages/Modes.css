@@ -1,0 +1,384 @@
+.modes-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--color-bg);
+}
+
+.modes-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-12) 0 var(--space-8);
+}
+
+/* ========================================
+   Page Header
+   ======================================== */
+
+.modes-header {
+    padding: 0 var(--space-8);
+    margin-bottom: var(--space-10);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modes-header.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modes-title {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    margin: 0 0 var(--space-2);
+}
+
+.modes-subtitle {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: 480px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   Grid Container
+   ======================================== */
+
+.modes-rail-container {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--space-8);
+}
+
+.modes-rail {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    max-width: 1000px;
+    width: 100%;
+    justify-items: center;
+}
+
+/* Center the last card (7th item) */
+.modes-rail .mode-card:last-child {
+    grid-column: 2;
+}
+
+.modes-rail.loaded .mode-card {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--card-index) * 0.08s);
+}
+
+/* ========================================
+   Mode Card - Glassmorphic Grid Style
+   ======================================== */
+
+.mode-card {
+    position: relative;
+    width: 100%;
+    min-height: 260px;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mode-card-inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+
+    /* Enhanced Glassmorphism */
+    background: linear-gradient(135deg,
+            rgba(24, 24, 27, 0.8) 0%,
+            rgba(18, 18, 20, 0.9) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        box-shadow 0.4s ease;
+}
+
+/* Colored top border accent */
+.mode-card-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--mode-color),
+            transparent);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover state */
+.mode-card:hover .mode-card-inner {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 0 40px color-mix(in srgb, var(--mode-color) 15%, transparent);
+}
+
+.mode-card:hover .mode-card-inner::before {
+    opacity: 1;
+}
+
+/* Focus state */
+.mode-card:focus-visible .mode-card-inner {
+    border-color: var(--mode-color);
+    box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.1),
+        0 0 0 4px var(--mode-color);
+}
+
+/* Selected state */
+.mode-card.selected .mode-card-inner {
+    transform: scale(1.02);
+    border-color: var(--mode-color);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 60px color-mix(in srgb, var(--mode-color) 25%, transparent);
+}
+
+.mode-card.selected .mode-glow {
+    opacity: 1;
+}
+
+/* Glow effect */
+.mode-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: 17px;
+    background: radial-gradient(ellipse at 50% 0%,
+            color-mix(in srgb, var(--mode-color) 20%, transparent) 0%,
+            transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mode-card:hover .mode-glow {
+    opacity: 0.5;
+}
+
+/* ========================================
+   Card Content
+   ======================================== */
+
+.mode-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-5);
+    opacity: 0.9;
+}
+
+.mode-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.mode-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.mode-context {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--mode-color);
+    margin-bottom: var(--space-3);
+    opacity: 0.9;
+}
+
+.mode-name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin: 0 0 var(--space-2);
+}
+
+.mode-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Hover hint */
+.mode-hover-hint {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: auto;
+    padding-top: var(--space-4);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--mode-color);
+    opacity: 0;
+    transform: translateY(4px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.mode-card:hover .mode-hover-hint {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mode-hover-hint svg {
+    transition: transform 0.2s ease;
+}
+
+.mode-card:hover .mode-hover-hint svg {
+    transform: translateX(2px);
+}
+
+/* ========================================
+   Active Mode Indicator
+   ======================================== */
+
+.mode-active-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    animation: fadeIn 0.3s ease;
+}
+
+.active-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.active-label {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+/* Tablet - 2 columns */
+@media (max-width: 1024px) {
+    .modes-rail {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+
+    /* Reset centered last card on 2-column layout */
+    .modes-rail .mode-card:last-child {
+        grid-column: auto;
+    }
+
+    .mode-card {
+        min-height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modes-header {
+        padding: 0 var(--space-5);
+    }
+
+    .modes-rail-container {
+        padding: var(--space-4);
+    }
+
+    .modes-rail {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+    }
+
+    .mode-card {
+        min-height: 220px;
+    }
+
+    .modes-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* Mobile - 1 column */
+@media (max-width: 480px) {
+    .modes-rail {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .mode-card {
+        min-height: 200px;
+    }
+
+    .mode-card-inner {
+        padding: var(--space-5);
+    }
+
+    .mode-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: var(--space-4);
+    }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .modes-header,
+    .mode-card,
+    .mode-card-inner,
+    .mode-hover-hint,
+    .mode-glow {
+        transition: none;
+    }
+
+    .modes-rail.loaded .mode-card {
+        transition: none;
+        transition-delay: 0s;
+    }
+
+    .active-dot {
+        animation: none;
+    }
+}
