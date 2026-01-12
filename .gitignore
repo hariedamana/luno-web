@@ -26,3 +26,6 @@ dist-ssr
 node_modules/
 dist/
 .env
+
+# Local hero video (do not commit)
+src/assets/hero-bg.mp4
