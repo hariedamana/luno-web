@@ -140,3 +140,174 @@ body {
   pointer-events: none;
 }
 
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 64px;
+
+  background:
+    radial-gradient(
+      ellipse 85% 45% at 50% 0%,
+      rgba(45, 212, 191, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    auto,
+    4px 4px; /* ⬅️ dotted texture density */
+}
+
+.hero-inner {
+  max-width: 900px;
+  text-align: center;
+  padding: 0 24px;
+}
+
+/* Badge */
+.hero-badge {
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #5eead4;
+  border: 1px solid rgba(94, 234, 212, 0.4);
+  border-radius: 999px;
+  margin-bottom: 28px;
+}
+
+/* Title */
+.hero-title {
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  color: #f8fafc;
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, #5eead4, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: 22px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 48px;
+}
+/* Divider line */
+.hero-divider {
+  position: relative;
+  margin-top: 96px;
+  width: 100%;
+  display: flex;
+  padding: 24px 0;
+  justify-content: center;
+}
+
+.hero-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+}
+
+/* CTA on the line */
+.hero-cta {
+  position: relative;
+  transform: translateY(0);
+  overflow: hidden;
+  z-index: 1;
+
+  padding: 16px 36px;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+
+  color: #022c22;
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(94, 234, 212, 0.95),
+      rgba(45, 212, 191, 0.7)
+    );
+
+  box-shadow:
+    0 0 0 1px rgba(45, 212, 191, 0.5),
+    0 12px 50px rgba(45, 212, 191, 0.45);
+}
+
+/* dotted texture on button */
+.hero-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background-image:
+    radial-gradient(
+      rgba(255, 255, 255, 0.35) 1px,
+      transparent 1px
+    );
+  background-size: 6px 6px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.hero-cta::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -40%;
+  width: 40%;
+  height: 200%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+
+  animation: cta-shine 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cta-shine {
+  0% {
+    left: -40%;
+  }
+  50% {
+    left: 110%;
+  }
+  100% {
+    left: -40%;
+  }
+}
+
+/* Space between subtitle and CTA section */
+.hero-cta-wrapper {
+  margin-top: 96px;   /* ⬅️ BIG, visible spacing */
+}
