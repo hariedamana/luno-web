@@ -6,6 +6,13 @@ export default function App() {
     <>
       <Navbar />
       <Hero />
+
+      {/* Placeholder for future preview section */}
+      <section className="preview-placeholder">
+        <div className="preview-inner">
+          <span>Preview section coming soon</span>
+        </div>
+      </section>
     </>
   );
 }
