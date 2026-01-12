@@ -1,28 +1,28 @@
+import heroVideo from "../assets/hero-bg.mp4";
+
 export default function Hero() {
   return (
     <section className="hero">
-      <div className="hero-inner">
-        <div className="hero-badge">
-          Looking for an AI voice platform?
-        </div>
+      <video
+        src={heroVideo}   // ✅ USE THE IMPORT
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
 
-        <h1 className="hero-title">
-          Internal voice capture at the speed of <span>AI</span>
+      <div className="hero-diagonal-loop" />
+
+      <div className="hero-content">
+        <h1>
+          Internal voice capture<br />
+          at the speed of <span className="luno-accent">AI</span>
         </h1>
 
-        <p className="hero-subtitle">
+        <p>
           Capture, transcribe, and organize conversations into structured,
           production-ready insights.
         </p>
-
-        {/* CTA + Divider */}
-        <div className="hero-cta-wrapper">
-          <div className="hero-divider">
-            <button className="hero-cta">
-              Start for free!
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
