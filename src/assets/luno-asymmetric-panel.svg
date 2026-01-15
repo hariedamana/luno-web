@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="800" viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="lunoPanelMask">
+      <!-- Base panel -->
+      <rect x="0" y="0" width="600" height="800" rx="64" ry="64" fill="white"/>
+
+      <!-- Large left carve -->
+      <circle cx="-80" cy="380" r="260" fill="black"/>
+
+      <!-- Bottom carve -->
+      <circle cx="180" cy="820" r="240" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Visible masked shape -->
+  <rect
+    x="0"
+    y="0"
+    width="600"
+    height="800"
+    fill="white"
+    mask="url(#lunoPanelMask)"
+  />
+</svg>

@@ -1,75 +1,66 @@
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import BetweenText from "./components/BetweenText";
-import Features from "./components/Features";
-import LunoModes from "./components/LunoModes";
-import LunoOverview from "./components/LunoOverview";
-import BlueprintSection from "./components/BlueprintSection";
+import LandingPage from "./components/LandingPage";
+import BuyLuno from "./components/BuyLuno";
+import SplashScreen from "./components/SplashScreen";
 import Footer from "./components/Footer";
 
 export default function App() {
+  const [activePage, setActivePage] = useState("landing");
+  const [showSplash, setShowSplash] = useState(true);
+
   useEffect(() => {
-    const sections = document.querySelectorAll("[data-reveal]");
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+      setActivePage("landing"); // ensure landing shows
+    }, 7000);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      {
-        threshold: 0.3,
-        rootMargin: "0px 0px -120px 0px",
-      }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
+    return () => clearTimeout(timer);
   }, []);
 
+  // ⬅️ SPLASH FIRST
+  if (showSplash) {
+    return <SplashScreen />;
+  }
+
+  // ⬅️ MAIN APP AFTER SPLASH
   return (
     <>
-      <Navbar />
+      <Navbar setActivePage={setActivePage} />
 
-      {/* HERO — instant confidence */}
-      <section data-reveal className="reveal fade-in">
-        <Hero />
-      </section>
+      <div className={`page-container ${activePage}`}>
+        {/* LANDING PAGE */}
+        <section className="page landing">
+          <LandingPage />
+        </section>
 
-      {/* OVERVIEW — depth appear */}
-      <section data-reveal className="reveal depth">
-        <LunoOverview />
-      </section>
+        {/* HOME */}
+        <section className="page home">
+          <h1>Home Dashboard</h1>
+        </section>
 
-      {/* BETWEEN TEXT — quiet lift */}
-      <section data-reveal className="reveal lift">
-        <BetweenText />
-      </section>
+        {/* MODES */}
+        <section className="page modes">
+          <h1>Modes</h1>
+        </section>
 
-      {/* FEATURES — sectional clarity */}
-      <section data-reveal className="reveal settle">
-        <Features />
-      </section>
+        {/* SESSIONS */}
+        <section className="page sessions">
+          <h1>Sessions</h1>
+        </section>
 
-      {/* MODES — precision reveal */}
-      <section data-reveal className="reveal precision">
-        <LunoModes />
-      </section>
+        {/* DEVICE */}
+        <section className="page device">
+          <h1>Device</h1>
+        </section>
 
-      {/* BLUEPRINT — engineered assemble */}
-      <section data-reveal className="reveal assemble">
-        <BlueprintSection />
-      </section>
+        {/* BUY */}
+        <section className="page buy">
+          <BuyLuno />
+        </section>
+      </div>
 
-      {/* FOOTER — calm glass settle */}
-      <section data-reveal className="reveal fade-in">
-        <Footer />
-      </section>
+      <Footer />
     </>
   );
 }

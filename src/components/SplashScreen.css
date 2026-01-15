@@ -1,0 +1,99 @@
+/* ================= SPLASH SCREEN ================= */
+
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-content {
+  text-align: center;
+}
+
+/* LOGO */
+.splash-logo {
+  width: 90px;
+  height: auto;
+
+  filter: brightness(0) invert(1); /* force white */
+
+  animation: jumpRotate 7s ease-in-out forwards;
+}
+
+/* TITLE */
+.splash-title {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  color: #fff;
+  opacity: 0;
+
+  animation: titleFadeIn 1s ease forwards;
+  animation-delay: 5.5s;
+}
+
+/* ================= ANIMATIONS ================= */
+
+/* Jump + rotate ~5 times */
+@keyframes jumpRotate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  10% {
+    transform: translateY(-35px) rotate(360deg);
+  }
+
+  20% {
+    transform: translateY(0) rotate(360deg);
+  }
+
+  30% {
+    transform: translateY(-35px) rotate(720deg);
+  }
+
+  40% {
+    transform: translateY(0) rotate(720deg);
+  }
+
+  50% {
+    transform: translateY(-35px) rotate(1080deg);
+  }
+
+  60% {
+    transform: translateY(0) rotate(1080deg);
+  }
+
+  70% {
+    transform: translateY(-35px) rotate(1440deg);
+  }
+
+  80% {
+    transform: translateY(0) rotate(1440deg);
+  }
+
+  90% {
+    transform: translateY(-35px) rotate(1800deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(1800deg);
+  }
+}
+
+/* Title entrance */
+@keyframes titleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

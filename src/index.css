@@ -887,74 +887,38 @@ svg:hover .signal {
   margin-right: auto;
 }
 
-/* BASE */
-.reveal {
-  opacity: 0;
-  will-change: opacity, transform;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-}
-
-/* 1. HERO — simple fade */
-.fade-in {
-  transition: opacity 0.8s ease-out;
-}
-
-/* 2. DEPTH — subtle Z presence */
-.depth {
-  transform: translateY(20px) scale(0.985);
-  transition:
-    opacity 0.9s ease,
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.depth.is-visible {
-  transform: translateY(0) scale(1);
-}
-
-/* 3. LIFT — minimal upward settle */
-.lift {
-  transform: translateY(28px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.lift.is-visible {
+.motion {
   transform: translateY(0);
-}
-
-/* 4. SETTLE — no direction, just clarity */
-.settle {
-  transform: translateY(14px);
   transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
-}
-.settle.is-visible {
-  transform: translateY(0);
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s ease;
+  will-change: transform;
 }
 
-/* 5. PRECISION — very controlled */
-.precision {
-  transform: translateY(12px);
-  transition:
-    opacity 0.75s ease,
-    transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.precision.is-visible {
-  transform: translateY(0);
+/* Before entering */
+.motion:not(.in-view) {
+  filter: blur(1px);
 }
 
-/* 6. ASSEMBLE — architectural */
-.assemble {
+/* Section personalities */
+.motion-soft:not(.in-view) {
+  transform: translateY(32px);
+}
+
+.motion-depth:not(.in-view) {
+  transform: translateY(56px) scale(0.985);
+}
+
+.motion-lift:not(.in-view) {
   transform: translateY(24px);
-  transition:
-    opacity 1s ease,
-    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.assemble.is-visible {
-  transform: translateY(0);
+
+.motion-precision:not(.in-view) {
+  transform: translateY(40px);
+}
+
+.motion-assemble:not(.in-view) {
+  transform: translateY(72px) scale(0.97);
 }
 
 .luno-footer {
@@ -1119,3 +1083,39 @@ svg:hover .signal {
 
   pointer-events: none;
 }
+
+.page-container {
+  display: flex;
+  width: 600vw;
+  transition: transform 0.7s ease-in-out;
+
+  align-items: flex-start; /* ⬅ VERY IMPORTANT */
+}
+
+.page {
+  flex: 0 0 100vw;
+  height: auto;
+  min-height: 100vh;
+}
+
+/* Horizontal transitions */
+.page-container.home {
+  transform: translateX(-100vw);
+}
+
+.page-container.modes {
+  transform: translateX(-200vw);
+}
+
+.page-container.sessions {
+  transform: translateX(-300vw);
+}
+
+.page-container.device {
+  transform: translateX(-400vw);
+}
+
+.page-container.buy {
+  transform: translateX(-500vw);
+}
+

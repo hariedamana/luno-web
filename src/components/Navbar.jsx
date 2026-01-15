@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import lunoLogo from "../assets/luno-logo.png";
 
-export default function Navbar() {
+export default function Navbar({ setActivePage }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,11 @@ export default function Navbar() {
       <div className="navbar-inner">
         {/* LEFT */}
         <div className="nav-left">
-          <div className="logo">
+          <div
+            className="logo"
+            onClick={() => setActivePage("landing")}
+            style={{ cursor: "pointer" }}
+          >
             <img
               src={lunoLogo}
               alt="Luno"
@@ -27,11 +31,11 @@ export default function Navbar() {
 
         {/* CENTER */}
         <ul className="nav-links">
-          <li>Home</li>
-          <li>Modes</li>
-          <li>Sessions</li>
-          <li>Device</li>
-          <li>Buy Luno</li>
+          <li onClick={() => setActivePage("home")}>Home</li>
+          <li onClick={() => setActivePage("modes")}>Modes</li>
+          <li onClick={() => setActivePage("sessions")}>Sessions</li>
+          <li onClick={() => setActivePage("device")}>Device</li>
+          <li onClick={() => setActivePage("buy")}>Buy Luno</li>
         </ul>
 
         {/* RIGHT */}
