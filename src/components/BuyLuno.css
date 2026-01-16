@@ -99,6 +99,7 @@
   z-index: -1;
 }
 
+
 /* ===============================
    DEVICE
 ================================ */
@@ -703,7 +704,7 @@
 /* ================= REVIEW SECTION ================= */
 
 .review-section {
-  padding: 7rem 2rem 6.5rem;
+  padding: 7rem 2rem 6rem;
   background: #000;
   text-align: center;
   position: relative;

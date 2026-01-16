@@ -17,7 +17,7 @@
 
 /* LOGO */
 .splash-logo {
-  width: 90px;
+  width: 200px;
   height: auto;
 
   filter: brightness(0) invert(1); /* force white */
@@ -28,7 +28,7 @@
 /* TITLE */
 .splash-title {
   margin-top: 1.2rem;
-  font-size: 0.9rem;
+  font-size: 2rem;
   letter-spacing: 0.3em;
   color: #fff;
   opacity: 0;

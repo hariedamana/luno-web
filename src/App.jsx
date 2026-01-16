@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
 import BuyLuno from "./components/BuyLuno";
 import SplashScreen from "./components/SplashScreen";
-import Footer from "./components/Footer";
 
 export default function App() {
   const [activePage, setActivePage] = useState("landing");
@@ -12,18 +11,18 @@ export default function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-      setActivePage("landing"); // ensure landing shows
+      setActivePage("landing");
     }, 7000);
 
     return () => clearTimeout(timer);
   }, []);
 
-  // ⬅️ SPLASH FIRST
+  // SPLASH SCREEN FIRST
   if (showSplash) {
     return <SplashScreen />;
   }
 
-  // ⬅️ MAIN APP AFTER SPLASH
+  // MAIN APP
   return (
     <>
       <Navbar setActivePage={setActivePage} />
@@ -59,8 +58,6 @@ export default function App() {
           <BuyLuno />
         </section>
       </div>
-
-      <Footer />
     </>
   );
 }

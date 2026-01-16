@@ -7,6 +7,8 @@ import respeakerImg from "../assets/respeaker.png";
 import sdImg from "../assets/sdcard.png";
 import powerImg from "../assets/powerbank.png";
 
+import Footer from "./Footer"; // ✅ ADD FOOTER IMPORT
+
 export default function BuyLuno() {
   const hardwareItems = [
     {
@@ -74,7 +76,6 @@ export default function BuyLuno() {
       {/* ================= PRODUCT SECTION ================= */}
       <section className="product-section">
         <div className="product-container">
-
           <div className="product-side-heading">
             MEET&nbsp;LUNO
           </div>
@@ -139,7 +140,6 @@ export default function BuyLuno() {
               <span className="cart-text">ADD TO CART</span>
             </button>
           </div>
-
         </div>
       </section>
 
@@ -229,6 +229,9 @@ export default function BuyLuno() {
           </div>
         </div>
       </section>
+
+      {/* ================= FOOTER (END OF PAGE) ================= */}
+      <Footer />
     </>
   );
 }

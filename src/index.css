@@ -923,7 +923,7 @@ svg:hover .signal {
 
 .luno-footer {
   position: relative;
-  padding: 0px 0 80px;
+  padding: 0;
   background: transparent;
 }
 
@@ -1095,8 +1095,17 @@ svg:hover .signal {
 .page {
   flex: 0 0 100vw;
   height: auto;
+  min-height: auto;
+}
+
+.page.landing,
+.page.home,
+.page.modes,
+.page.sessions,
+.page.device {
   min-height: 100vh;
 }
+
 
 /* Horizontal transitions */
 .page-container.home {
@@ -1119,3 +1128,6 @@ svg:hover .signal {
   transform: translateX(-500vw);
 }
 
+.page.buy {
+  min-height: auto;
+}
